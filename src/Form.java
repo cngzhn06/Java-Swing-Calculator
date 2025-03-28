@@ -21,108 +21,134 @@ public class Form extends JFrame{
     private JButton minus;
     private JButton plus;
     private JTextField txtDisplay;
-    private JButton ACButton;
-    private JLabel downDisplay;
+    private JButton CButton;
+    private JLabel lblDisplay;
     double a,b,result;
     String op;
 
 
     public Form(){
         add(panel1);
-        setSize(400,200);
+        setSize(500,300);
         setTitle("Hesap Makinası");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        a2Button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtDisplay.setText(txtDisplay.getText() + a2Button.getText());
-            }
-        });
+
         a1Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a1Button.getText());
+                lblDisplay.setText("");
             }
         });
+        a2Button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                txtDisplay.setText(txtDisplay.getText() + a2Button.getText());
+                lblDisplay.setText("");
+            }
+        });
+
         a3Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a3Button.getText());
+                lblDisplay.setText("");
             }
         });
         a4Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a4Button.getText());
+                lblDisplay.setText("");
             }
         });
         a5Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a5Button.getText());
+                lblDisplay.setText("");
             }
         });
         a6Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a6Button.getText());
+                lblDisplay.setText("");
             }
         });
         a7Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a7Button.getText());
+                lblDisplay.setText("");
             }
         });
         a8Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a8Button.getText());
+                lblDisplay.setText("");
             }
         });
         a9Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a9Button.getText());
+                lblDisplay.setText("");
             }
         });
         a0Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText(txtDisplay.getText() + a0Button.getText());
+                lblDisplay.setText("");
             }
         });
         plus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a= Double.parseDouble(txtDisplay.getText());
-                op = "+";
-                txtDisplay.setText("");
+                if (!txtDisplay.getText().isEmpty()){
+                    a= Double.parseDouble(txtDisplay.getText());
+                    op = "+";
+                    txtDisplay.setText("");
+                }else {
+                    lblDisplay.setText("enter number");
+                }
             }
         });
 
         minus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a= Double.parseDouble(txtDisplay.getText());
-                op = "-";
-                txtDisplay.setText("");
+
+                   a= Double.parseDouble(txtDisplay.getText());
+                   op = "-";
+                   txtDisplay.setText("");
+
             }
         });
         multiplacition.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a= Double.parseDouble(txtDisplay.getText());
-                op = "*";
-                txtDisplay.setText("");
+                if (!txtDisplay.getText().isEmpty()){
+                    a= Double.parseDouble(txtDisplay.getText());
+                    op = "*";
+                    txtDisplay.setText("*");
+                }else {
+                    lblDisplay.setText("enter number");
+                }
             }
         });
         division.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                a= Double.parseDouble(txtDisplay.getText());
-                op = "/";
-                txtDisplay.setText("");
+                if (!txtDisplay.getText().isEmpty()){
+                    a= Double.parseDouble(txtDisplay.getText());
+                    op = "/";
+                    txtDisplay.setText("");
+                }else {
+                    lblDisplay.setText("enter number");
+                }
             }
         });
         backspace.addActionListener(new ActionListener() {
@@ -153,20 +179,20 @@ public class Form extends JFrame{
                         result = a * b;
                         txtDisplay.setText(String.valueOf(result));
                     } else if (op.equals("/")) {
-                        if (b != 0 && a == 0) {
+                        if (b != 0 && a != 0) {
                             result = a / b;
                             txtDisplay.setText(String.valueOf(result));
                         } else {
-                            downDisplay.setText("Division Err!");
+                            lblDisplay.setText("Division Err!");
                         }
                     }
                 } else {
-                    downDisplay.setText("Invalid Err!");
+                    lblDisplay.setText("Invalid Err!");
                 }
             }
         });
 
-        ACButton.addActionListener(new ActionListener() {
+        CButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 txtDisplay.setText("");
